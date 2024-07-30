@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TIC TAC TOE</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="./resourses/fav-icon.png" />
+  </head>
+  <body>
+    <div class="nav">
+      <div class="logo">
+        <div class="playerX">X</div>
+        <div class="playerY">O</div>
+      </div>
+      <div class="status">START(X)</div>
+      <div class="restart">
+        <img src="./resourses/reset.svg" alt="reset" class="reset" />
+      </div>
+    </div>
+    <div class="mid">
+      <div class="grid">
+        <button class="cell"></button>
+        <button class="cell"></button>
+        <button class="cell"></button>
+        <button class="cell"></button>
+        <button class="cell"></button>
+        <button class="cell"></button>
+        <button class="cell"></button>
+        <button class="cell"></button>
+        <button class="cell"></button>
+      </div>
+    </div>
+    <div class="score">
+      <div class="playerX" id="x">X: 0</div>
+      <div class="tie" id="t">TIE: 0</div>
+      <div class="playerY" id="y">Y: 0</div>
+    </div>
+    <footer>Made with ❤️ by Akash.</footer>
+    <script src="./app.js"></script>
+  </body>
+</html>
