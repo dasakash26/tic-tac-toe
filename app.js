@@ -73,7 +73,7 @@ function checkWinner() {
       running
     ) {
       tie++;
-      scoreX.innerText = `TIE: ${tie}`;
+      scoreT.innerText = `TIE: ${tie}`;
       gameStatus.innerHTML = "TIE!";
       running = false;
     }
