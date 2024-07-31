@@ -75,6 +75,9 @@ function checkWinner() {
       cells[cond[2]].innerText === player
     ) {
       gameStatus.innerHTML = `${player} WINS !!`;
+      gameStatus.style.boxShadow =
+        player === "X" ? "3px 8px 10px #7b0101" : "3px 8px 10px #e2ed00";
+      gameStatus.style.color = player === "X" ? "#7b0101" : "#e2ed00";
       if (player === "X") {
         xWin++;
         scoreX.innerText = `X: ${xWin}`;
