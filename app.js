@@ -27,10 +27,23 @@ cells.forEach((cell) => {
     if (cell.innerText !== "" || !running) return;
     //mark cell
     cell.innerText = player;
+    cell.style.boxShadow =
+      player === "X" ? "3px 8px 10px #7b0101" : "3px 8px 10px #e2ed00";
+    cell.style.color = player === "X" ? "#7b0101" : "#e2ed00";
     //check winner
     checkWinner();
     //change player
     if (running) switchPlayer();
+  });
+  //hover
+  cell.addEventListener("mouseover", (e) => {
+    if (cell.innerText === "" && running) {
+      cell.classList.add(`hover-${player}`);
+    }
+  });
+
+  cell.addEventListener("mouseout", (e) => {
+    cell.classList.remove(`hover-${player}`);
   });
 });
 
@@ -52,6 +65,9 @@ function reset() {
 }
 
 function checkWinner() {
+  cells.forEach((cell) => {
+    cell.classList.remove("hover-X", "hover-O");
+  });
   winCond.forEach((cond) => {
     if (
       cells[cond[0]].innerText === player &&
@@ -62,20 +78,18 @@ function checkWinner() {
       if (player === "X") {
         xWin++;
         scoreX.innerText = `X: ${xWin}`;
-        running = false;
-      } else if (player === "O") {
+      } else {
         yWin++;
         scoreY.innerText = `Y: ${yWin}`;
-        running = false;
       }
-    } else if (
-      Array.from(cells).every((cell) => cell.innerText !== "") &&
-      running
-    ) {
-      tie++;
-      scoreT.innerText = `TIE: ${tie}`;
-      gameStatus.innerHTML = "TIE!";
       running = false;
+      return;
     }
   });
+  if (running && Array.from(cells).every((cell) => cell.innerText !== "")) {
+    tie++;
+    scoreT.innerText = `TIE: ${tie}`;
+    gameStatus.innerHTML = "TIE!";
+    running = false;
+  }
 }
