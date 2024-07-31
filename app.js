@@ -56,8 +56,12 @@ function switchPlayer() {
 }
 
 function reset() {
+  gameStatus.style.boxShadow = "3px 3px 8px 2px";
+  gameStatus.style.color = "";
   cells.forEach((cell) => {
     cell.innerText = "";
+    cell.style.boxShadow = "3px 8px 10px";
+    cell.style.color = "";
   });
   running = true;
   switchPlayer();
@@ -93,6 +97,7 @@ function checkWinner() {
     tie++;
     scoreT.innerText = `TIE: ${tie}`;
     gameStatus.innerHTML = "TIE!";
+    gameStatus.style.boxShadow = "3px 8px 10px neon";
     running = false;
   }
 }
